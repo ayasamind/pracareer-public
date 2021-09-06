@@ -23,6 +23,7 @@ class RouteServiceProvider extends ServiceProvider
     public const COMPANY_HOME = '/company/posts';
     public const MAIL_SEND    = '/student/mail_send';
     public const HOME         = '/';
+    protected $namespace  = 'App\Http\Controllers'; 
 
     /**
      * Define your route model bindings, pattern filters, etc.
