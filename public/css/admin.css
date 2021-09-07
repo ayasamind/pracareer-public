@@ -1,0 +1,10 @@
+button.btn-primary {
+    background: #135064;
+    border-color: #135064;
+}
+
+button.btn-primary:hover {
+    background: #135064;
+    border-color: #135064;
+    filter: brightness(90%);
+}

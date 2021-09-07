@@ -5,17 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>管理者ログイン | {{config('app.name')}}</title>
-    <!-- Bootstrap-->
+    <title>管理者ログイン | {{ Config::get('app.name') }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <!-- Theme style -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/css/coreui.min.css">
-    <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@icon/coreui-icons-free@1.0.1-alpha.1/coreui-icons-free.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
-          rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 <body class="app flex-row align-items-center">
 <div class="container">
@@ -26,20 +23,19 @@
                     <div class="card-body">
                         <form method="post" action="{{ url('/admin/login') }}">
                             @csrf
+                            <a class="navbar-brand" href="#">
+                                <img class="navbar-brand-minimized" src="{{ asset("img/placari_logo.png") }}" width="100" alt="Placari Logo">
+                            </a>
                             <h1>管理者@lang('auth.sign_in')</h1>
                             <br>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                      <i class="icon-user"></i>
-                                    </span>
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="email" class="form-control {{ $errors->has('email')?'is-invalid':'' }}" name="email" value="{{ old('email') }}"
-                                       placeholder="@lang('auth.email')">
+                                <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid':'' }}" name="email" value="{{ old('email') }}" placeholder="@lang('auth.email')">
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                    <strong>{{ $errors->first('email') }}</strong>
                                 @endif
                             </div>
                             <div class="input-group mb-4">
@@ -55,19 +51,18 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <button class="btn btn-primary px-4" type="submit">@lang('auth.sign_in')</button>
+                            <div class='row'>
+                                <div class="mx-auto col-md-6">
+                                    <button class="btn btn-primary btn-block" type="submit">@lang('auth.sign_in')</button>
                                 </div>
                             </div>
-                        </form>
+                        </form
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- CoreUI and necessary plugins-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
